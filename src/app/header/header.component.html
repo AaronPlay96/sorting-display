@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <span class="navbar-brand">Sorting Display</span>
+
+  <div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item nav-link" >
+          Sort Speed X
+          <input type="number" [(ngModel)]="this.arrayService.speedInput" (input)="changeSpeed(this.arrayService.speedInput)" style="max-width: 3rem; border-radius: 10px; max-height: 1.5rem" min="0.1" max="1" step="0.1">
+      </li>
+
+      <li class="nav-item nav-link" >
+          Array Length
+          <input type="number" (input)="generateArray()" [(ngModel)]="quantity" style="max-width: 3rem; border-radius: 10px; max-height: 1.5rem" min="2" max="65">
+      </li>
+
+      <li class="nav-item" >
+        <a class="nav-link" style="cursor: pointer" id="generateArray" role="button" (click)="generateArray()">
+          Generate Array
+        </a>
+      </li>
+
+      <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-right">
+        <a class="nav-link" style="cursor: pointer" ngbDropdownToggle id="navbarDropdown" role="button">
+          {{selectedSort}}
+        </a>
+        <div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu" >
+          <a ngbDropdownItem href="#" (click)="sort(sortType)" *ngFor="let sortType of sortTypes">{{sortType}}</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</nav>
