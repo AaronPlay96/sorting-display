@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
   quantity = 65;
   selectedSort = 'Bubble Sort';
   sortTypes = ['Bubble Sort', 'Insertion Sort', 'Quick Sort', 'Merge Sort'];
-  constructor(private arrayService: ArrayService) {
+  constructor(public arrayService: ArrayService) {
   }
 
   ngOnInit() {

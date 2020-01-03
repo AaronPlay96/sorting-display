@@ -8,7 +8,7 @@ import {Value} from '../Value';
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit {
-  constructor(private arrayService: ArrayService) {}
+  constructor(public arrayService: ArrayService) {}
 
   ngOnInit() {
     this.arrayService.generateArray();
