@@ -17,13 +17,18 @@ export class HeaderComponent implements OnInit {
   }
 
   generateArray() {
-    this.arrayService.generateArray(this.quantity);
+    if (!this.arrayService.sorting) {
+      this.arrayService.generateArray(this.quantity);
+    }
   }
 
   sort(sortType) {
-    this.selectedSort = sortType;
-    this.arrayService.sort(sortType);
+    if (!this.arrayService.sorting) {
+      this.selectedSort = sortType;
+      this.arrayService.sort(sortType);
+    }
   }
+
   changeSpeed(speed) {
     this.arrayService.changeSpeed(speed);
   }

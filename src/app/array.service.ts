@@ -9,7 +9,8 @@ export class ArrayService {
   values: Value[] = [];
   quantity = 65;
   speedInput = 1;
-  speed = 50;
+  speed = 20;
+  sorting = false;
   constructor() {
     this.generateArray();
   }
@@ -28,16 +29,24 @@ export class ArrayService {
   }
   async sort(sortType) {
     if (sortType === 'Bubble Sort') {
+      this.sorting = true;
       await this.bubbleSort();
+      this.sorting = false;
     }
     if (sortType === 'Merge Sort') {
+      this.sorting = true;
       await this.mergeSort(0, this.values.length - 1);
+      this.sorting = false;
     }
     if (sortType === 'Insertion Sort') {
+      this.sorting = true;
       await this.insertionSort();
+      this.sorting = false;
     }
     if (sortType === 'Quick Sort') {
+      this.sorting = true;
       await this.quickSort(this.values, 0, this.values.length - 1);
+      this.sorting = false;
     }
     for (let i = 0; i < this.quantity; i++) {
       this.values[i].type = 'dark';
